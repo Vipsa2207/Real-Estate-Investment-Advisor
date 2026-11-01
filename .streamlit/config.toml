@@ -1,0 +1,7 @@
+[theme]
+base = "light"
+primaryColor = "#2A9D8F"              # teal: buttons, sliders, active tabs
+backgroundColor = "#F7F9FB"           # very light grey-blue page
+secondaryBackgroundColor = "#E9EEF3"  # sidebar and input boxes
+textColor = "#1F3B57"                 # navy text
+font = "sans serif"
