@@ -3,10 +3,14 @@ import numpy as np
 import plotly.express as px
 import streamlit as st
 from pathlib import Path
+import base64
 from insights import INSIGHTS, INVESTOR_RECS, PLATFORM_RECS, REALITY_CHECK
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="SqFt Signal | Property Investment Advisor", page_icon="📡", layout="wide")
+LOGO_PATH = Path(__file__).parent / "assets" / "logo.png"
+LOGO_B64 = base64.b64encode(LOGO_PATH.read_bytes()).decode()   # logo as text, for use inside HTML
+
+st.set_page_config(page_title="SqFt Signal | Property Investment Advisor", page_icon=str(LOGO_PATH), layout="wide")
 
 PALETTE = ["#1F3B57", "#2A9D8F", "#E9C46A", "#E76F51", "#8D99AE"]  # same as notebook
 
@@ -41,7 +45,8 @@ SUBTITLE = "India Property Investment Advisor · Is it a good investment? What w
 
 st.markdown(f"""
 <div class="hero">
-  <h1>📡 {APP_NAME}</h1>
+    <h1><img src="data:image/png;base64,{LOGO_B64}" style="height:60px; vertical-align:middle;
+    margin-right:14px; background:white; padding:3px; border-radius:14px;"> {APP_NAME}</h1>
   <p style="font-size:1.25rem; font-weight:600; color:white;">{TAGLINE}</p>
   <p>{SUBTITLE}</p>
   <span class="tag">📊 {len(df):,} properties</span>
@@ -75,7 +80,9 @@ def reset_filters():
         st.session_state[k] = v
 
 sb = st.sidebar
-sb.markdown("## 📡 SqFt Signal")
+sb.markdown(f"""<div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+  <img src="data:image/png;base64,{LOGO_B64}" style="height:46px; background:white; padding:2px; border-radius:10px;">
+  <span style="font-size:1.45rem; font-weight:700;">SqFt Signal</span></div>""", unsafe_allow_html=True)
 sb.caption("Filter the market")
 
 states = sorted(df["State"].unique())
