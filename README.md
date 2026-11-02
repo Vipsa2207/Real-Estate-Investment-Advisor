@@ -21,6 +21,7 @@
 ## 📌 Live App
 
 **👉 [sqft-signal.streamlit.app](https://sqft-signal.streamlit.app)**
+**📄 [Full project documentation (PDF)](docs/SqFt_Signal_Project_Documentation.pdf)**
 
 > If the app shows a *"This app has gone to sleep"* message, click **"Yes, get this app back up!"** and wait about 30 seconds. Free Streamlit apps sleep when unused.
 
